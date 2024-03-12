@@ -61,8 +61,6 @@ public class Login {
 			driver.findElement(By.xpath("//input[@Id=\"mat-input-1\"]")).sendKeys("Test");
 			driver.findElement(By.xpath("//input[@Id=\"mat-input-3\"]")).sendKeys("1182915020");
 			driver.findElement(By.xpath("//input[@Id=\"mat-input-4\"]")).sendKeys("digambar.karde@yodda.net");
-//			driver.findElement(By.xpath("//span[text()=\"Get code\"]")).click();
-//			driver.findElement(By.xpath("//input[@Id=\"mat-input-5\"]")).sendKeys("1234");
 
 			// Locate the input field
 			WebElement inputField = driver.findElement(By.cssSelector("input[formcontrolname='city']"));
@@ -74,8 +72,7 @@ public class Login {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			By autocompleteOptionsLocator = By.cssSelector("mat-option"); // Adjust the locator based on your HTML
 																			// structure
-			WebElement autocompleteOptions = wait
-					.until(ExpectedConditions.visibilityOfElementLocated(autocompleteOptionsLocator));
+			WebElement autocompleteOptions = wait.until(ExpectedConditions.visibilityOfElementLocated(autocompleteOptionsLocator));
 
 			// Select the desired option
 			WebElement desiredOption = autocompleteOptions.findElement(By.xpath("//span[contains(text(), 'Pune')]"));
@@ -188,69 +185,73 @@ public class Login {
 				e.printStackTrace();
 			} finally {
 
-				 try {
-			            // Locate the mat-select element by ID (you may use other locators depending on your HTML structure)
-			            WebElement matSelect12 = driver.findElement(By.id("mat-select-6"));
+				try {
+					// Locate the mat-select element by ID (you may use other locators depending on
+					// your HTML structure)
+					WebElement matSelect12 = driver.findElement(By.id("mat-select-6"));
 
-			            // Create a Select object for the mat-select
-			            Select select = new Select(matSelect12);
+					// Create a Select object for the mat-select
+					Select select = new Select(matSelect12);
 
-			            // Click on the mat-select to open the dropdown
-			            matSelect12.click();
+					// Click on the mat-select to open the dropdown
+					matSelect12.click();
 
-			            // Wait for the dropdown options to be visible
-			            WebDriverWait wait12 = new WebDriverWait(driver, Duration.ofSeconds(10));
-			            wait12.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-option")));
+					// Wait for the dropdown options to be visible
+					WebDriverWait wait12 = new WebDriverWait(driver, Duration.ofSeconds(10));
+					wait12.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-option")));
 
-			            // Check if the placeholder is present before selecting an option
-			            WebElement placeholderElement = driver.findElement(By.xpath("//span[@class='mat-select-placeholder']"));
-			            if (placeholderElement.isDisplayed()) {
-			                // Placeholder is present, you can handle it or skip this part
+					// Check if the placeholder is present before selecting an option
+					WebElement placeholderElement = driver
+							.findElement(By.xpath("//span[@class='mat-select-placeholder']"));
+					if (placeholderElement.isDisplayed()) {
+						// Placeholder is present, you can handle it or skip this part
 
-			                // Optionally, you can click on the placeholder to simulate user interaction
-			                placeholderElement.click();
-			            }
+						// Optionally, you can click on the placeholder to simulate user interaction
+						placeholderElement.click();
+					}
 
-			            // Locate and click the desired option in the dropdown (replace with your option text)
-			            String optionText = "Your Desired Option Text";
-			            WebElement optionElement = driver.findElement(By.xpath("//span[contains(text(), '" + optionText + "')]"));
-			            optionElement.click();
+					// Locate and click the desired option in the dropdown (replace with your option
+					// text)
+					String optionText = "Your Desired Option Text";
+					WebElement optionElement = driver
+							.findElement(By.xpath("//span[contains(text(), '" + optionText + "')]"));
+					optionElement.click();
 
-			            // Optionally, perform additional actions after selecting the option
+					// Optionally, perform additional actions after selecting the option
 
-			        } finally {
-				
+				} finally {
 
-				WebElement chequeNumberInput = driver.findElement(By.id("mat-input-10"));
-				chequeNumberInput.sendKeys("38648346573");
+					WebElement chequeNumberInput = driver.findElement(By.id("mat-input-10"));
+					chequeNumberInput.sendKeys("38648346573");
 
-				// Find the button by its XPath
-				WebElement button = driver.findElement(By.xpath("//button[@aria-label='Open calendar']"));
+					// Find the button by its XPath
+					WebElement button = driver.findElement(By.xpath("//button[@aria-label='Open calendar']"));
 
-				// Click the button
-				button.click();
+					// Click the button
+					button.click();
 
-				int dayToSelect = 7;
+					int dayToSelect = 7;
 
-				// Construct the XPath for the day in the calendar
-				String xpath = "//td[@aria-label='March " + dayToSelect + ", 2024']";
+					// Construct the XPath for the day in the calendar
+					String xpath = "//td[@aria-label='March " + dayToSelect + ", 2024']";
 
-				// Find the WebElement for the specified day
-				WebElement dayElement = driver.findElement(By.xpath(xpath));
+					// Find the WebElement for the specified day
+					WebElement dayElement = driver.findElement(By.xpath(xpath));
 
-				// Click on the day to select it
-				dayElement.click();
+					// Click on the day to select it
+					dayElement.click();
 
-				WebElement BankName = driver.findElement(By.id("mat-input-9"));
-				BankName.sendKeys("SBI");
+					WebElement BankName = driver.findElement(By.id("mat-input-9"));
+					BankName.sendKeys("SBI");
 
-				driver.findElement(By.xpath(
-						"/html/body/ngb-modal-window/div/div/app-offline-payment-popup/div[2]/form/div[9]/button"))
-						.click();
+					driver.findElement(By.xpath(
+							"/html/body/ngb-modal-window/div/div/app-offline-payment-popup/div[2]/form/div[9]/button"))
+							.click();
 
-				// driver.quit();
+					// driver.quit();
+				}
+
 			}
-
 		}
 	}
-}}
+}
