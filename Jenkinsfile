@@ -1,7 +1,7 @@
 pipeline{
     agent any  
     tools { 
-      maven1 'MAVEN_HOME' 
+      maven 'maven1' 
     }
     stages{
         stage('Clone Repository'){
