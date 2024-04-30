@@ -12,7 +12,7 @@ pipeline{
                 //     echo "current branch is  ${CURRENT_BRANCH}"
                 //     echo "current hash is ${CURRENT_HASH}"
                 // '''
-                // sh "clone repository is sucessfull"
+                echo "clone repository is sucessfull"
                 }
             }
         }
