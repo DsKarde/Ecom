@@ -1,18 +1,18 @@
 pipeline{
     agent any  
     tools { 
-      maven 'MAVEN_HOME' 
-      jdk 'JAVA_HOME' 
+      maven1 'MAVEN_HOME' 
     }
     stages{
         stage('Clone Repository'){
             steps{
                 script {
-                sh '''
-                    echo "commit id is ${GIT_COMMIT}"
-                    echo "current branch is  ${CURRENT_BRANCH}"
-                    echo "current hash is ${CURRENT_HASH}"
-                '''
+                // sh '''
+                //     echo "commit id is ${GIT_COMMIT}"
+                //     echo "current branch is  ${CURRENT_BRANCH}"
+                //     echo "current hash is ${CURRENT_HASH}"
+                // '''
+                sh "clone repository is sucessfull"
                 }
             }
         }
